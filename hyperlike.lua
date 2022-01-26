@@ -29,7 +29,7 @@ hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
 -- Do need these {'cmd','alt','shift','ctrl'} chord generation because some apps like Keyboard Maestro doesn't accept F18 as modifier, 
 -- meaning that you can't set hotkeys like F18+n (as opposed to {'cmd','alt','shift','ctrl'}+n) in there.
 -- Also note that some keys (e.g. hjkl, return and a few others) are intentionally excluded here.
-local hyperlikeBindings = {'a','b','d','e','m','n','o','p','q','r','s','t','v','x','w','z',';',"'",'`','\\'}
+local hyperlikeBindings = {'a','d','e','n','o','p','q','r','s','t','v','x','w','z',';',"'",'`','\\'}
 for _, key in ipairs(hyperlikeBindings) do 
     capslock_modal:bind({}, key, nil, lib.keypress(true, {'shift','ctrl','alt','cmd'}, key))
 end
@@ -109,12 +109,7 @@ capslock_modal:bind({'ctrl', 'shift'}, 'j', movePointerDownFast, nil, movePointe
 capslock_modal:bind({'ctrl', 'shift'}, 'k', movePointerUpFast, nil, movePointerUpFast)
 capslock_modal:bind({'ctrl', 'shift'}, 'l', movePointerRightFast, nil, movePointerRightFast)
 
-
---[[ 2021/12/10 caps-left/right/up/down will NOT change window size any longer
-capslock_modal:bind({}, 'left', function() moveToScreen(0) moveLeftHalf() capslock_modal.triggered = true end)
-capslock_modal:bind({}, 'right', function() moveToScreen(0) moveRightHalf() capslock_modal.triggered = true end)
-capslock_modal:bind({}, 'up', function() moveToScreen(0) moveCenterBig() capslock_modal.triggered = true end)
-]]--
+-- Window management
 capslock_modal:bind({'cmd'}, 'left', function() moveToScreen(0) moveLeftHalf() capslock_modal.triggered = true end)
 capslock_modal:bind({'cmd'}, 'right', function() moveToScreen(0) moveRightHalf() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'left', moveLeftmost, nil, moveLeftmost)
