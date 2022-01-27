@@ -29,13 +29,13 @@ function notifyModeChange(message)
     hs.alert.show(message, style, 0.5)
 end
 
-local listOfIgnoringViMode = {'Microsoft Excel', 'HandBrake', 'Calculator', 'Screen Sharing', 'VMWare Fusion', 'Keynote', 'IntelliJ IDEA', 'MySQLWorkbench', 'Microsoft OneNote', 'Pages', 'Numbers', 'Xcode', 'Code', 'iTerm2', 'Terminal', 'Microsoft Edge', 'Google Chrome', 'KakaoTalk', 'Simulator', 'DBeaver', 'Android Studio', 'Chrome Remote Desktop', 'Hammerspoon'}
+local listOfIgnoringViMode = {'HandBrake', 'Calculator', 'Screen Sharing', 'VMWare Fusion', 'Keynote', 'IntelliJ IDEA', 'MySQLWorkbench', 'Pages', 'Numbers', 'Xcode', 'Code', 'iTerm2', 'Terminal', 'Microsoft Edge', 'Google Chrome', 'KakaoTalk', 'Simulator', 'DBeaver', 'Thunderbird', 'Android Studio', 'Chrome Remote Desktop', 'Hammerspoon'}
 for _, toIgnore in ipairs(listOfIgnoringViMode) do
   hs.window.filter.new(toIgnore)
   :subscribe(hs.window.filter.windowFocused, function() toInsertMode() end)
 end
 
-local listOfDefaultViMode = {'Foxit PDF Reader', 'Preview', 'Books', 'Finder', 'IINA'}
+local listOfDefaultViMode = {'Microsoft OneNote', 'Foxit PDF Reader', 'Preview', 'Books', 'Finder', 'IINA'}
 for _, defaultVim in ipairs(listOfDefaultViMode) do
   hs.window.filter.new(defaultVim)
   :subscribe(hs.window.filter.windowFocused, function() toNormalMode() end)

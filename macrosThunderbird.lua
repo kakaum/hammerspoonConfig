@@ -5,8 +5,8 @@ local thunderbirdSaveSelected = hs.hotkey.new({'cmd', 'alt', 'shift', 'control'}
     hs.fs.mkdir(dirName)
     et.keyStroke({'cmd'}, 's')
     local timer = require 'hs.timer'
-    local initialDelay = 0.5
-    local interval = 0.1
+    local initialDelay = 1
+    local interval = 0.2
     timer.doAfter(initialDelay, function()
         et.keyStroke({'cmd', 'shift'}, 'g')
         timer.doAfter(interval, function()

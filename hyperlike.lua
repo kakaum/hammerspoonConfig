@@ -8,7 +8,7 @@ pressedF18 = function()
 end
 
 -- Leave Hyper-like Mode when capslock is released,
---   send ESCAPE if no other keys are pressed until capslock is released.
+--   send ESCAPE if no other keys are pressed until capslock is released (capslock_modal.triggered is changed to true).
 releasedF18 = function()
     capslock_modal:exit()
     if not capslock_modal.triggered then
@@ -25,10 +25,10 @@ end
 -- Bind the Hyper-like key
 hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
 
--- Generate global (original?) hyper keys. E.g. capslock+a generates {'cmd','alt','shift','ctrl'}+a
--- Do need these {'cmd','alt','shift','ctrl'} chord generation because some apps like Keyboard Maestro doesn't accept F18 as modifier, 
--- meaning that you can't set hotkeys like F18+n (as opposed to {'cmd','alt','shift','ctrl'}+n) in there.
--- Also note that some keys (e.g. hjkl, return and a few others) are intentionally excluded here.
+-- Generate global (original?) hyper key chords. E.g. caps+a generates cmd+alt+shift+ctrl+a
+-- Some apps like Keyboard Maestro may require these *intentional* {'cmd','alt','shift','ctrl'} chord generation
+-- because it doesn't accept F18 as modifier in creating its macro, meaning that you can't set hotkeys like F18+n 
+-- (as opposed to cmd+alt+shift+ctrl+n).
 local hyperlikeBindings = {'a','d','e','n','o','p','q','r','s','t','v','x','w','z',';',"'",'`','\\'}
 for _, key in ipairs(hyperlikeBindings) do 
     capslock_modal:bind({}, key, nil, lib.keypress(true, {'shift','ctrl','alt','cmd'}, key))
@@ -70,10 +70,9 @@ end, nil, nil)
 capslock_modal:bind({}, 'u', function() hs.eventtap.keyStroke({'cmd','shift'}, '[') capslock_modal.triggered = true end, nil)
 capslock_modal:bind({}, 'i', function() hs.eventtap.keyStroke({'cmd','shift'}, ']') capslock_modal.triggered = true end, nil)
 
--- Xcode specific
+-- For Xcode
 capslock_modal:bind({}, 'f', lib.keypress(true, {'cmd','alt'}, 'left'), nil, lib.keypress(true, {'cmd','alt'}, 'left'))
 capslock_modal:bind({}, 'g', lib.keypress(true, {'cmd','alt'}, 'right'), nil, lib.keypress(true, {'cmd','alt'}, 'right'))
-
 capslock_modal:bind({}, 'delete', lib.keypress(true, {'cmd','control'}, 'left'), nil, lib.keypress(true, {'cmd','control'}, 'left'))
 capslock_modal:bind({}, 'y', lib.keypress(true, {'cmd','shift'}, 'a'), nil, lib.keypress(true, {'cmd','shift'}, 'a'))
 capslock_modal:bind({}, '.', lib.keypress(true, {'cmd','shift','ctrl'}, '/'), nil, lib.keypress(true, {'cmd','shift','ctrl'}, '/'))
@@ -97,6 +96,7 @@ capslock_modal:bind({}, '-', lib.keypress(true, 'f11'), nil, lib.keypress(true, 
 capslock_modal:bind({}, '=', lib.keypress(true, 'f12'), nil, lib.keypress(true, 'f12'))
 
 -- Mouse control by keyboard
+require('mouse')
 capslock_modal:bind({'ctrl'}, '\'', nil, doubleClickCurr)
 capslock_modal:bind({'ctrl'}, 'return', nil, leftClickCurr)
 capslock_modal:bind({'ctrl'}, '\\', nil, rightClickCurr)
@@ -110,18 +110,17 @@ capslock_modal:bind({'ctrl', 'shift'}, 'k', movePointerUpFast, nil, movePointerU
 capslock_modal:bind({'ctrl', 'shift'}, 'l', movePointerRightFast, nil, movePointerRightFast)
 
 -- Window management
+require('window')
 capslock_modal:bind({'cmd'}, 'left', function() moveToScreen(0) moveLeftHalf() capslock_modal.triggered = true end)
 capslock_modal:bind({'cmd'}, 'right', function() moveToScreen(0) moveRightHalf() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'left', moveLeftmost, nil, moveLeftmost)
 capslock_modal:bind({}, 'right', moveRightmost, nil, moveRightmost)
 capslock_modal:bind({}, 'up', moveTopmost, nil, moveTopmost)
 capslock_modal:bind({}, 'down', moveBottommost, nil, moveBottommost)
-
 -- capslock_modal:bind({}, 'c', function() moveToScreen(0) hs.window.focusedWindow():centerOnScreen() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'c', function() moveToScreen(0) moveCenter() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'b', function() moveToScreen(0) moveCenterBig() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'm', function() moveToScreen(0) maximize() capslock_modal.triggered = true end)
-
 capslock_modal:bind({'cmd'}, 'h', moveLeft, nil, moveLeft)
 capslock_modal:bind({'cmd'}, 'l', moveRight, nil, moveRight)
 capslock_modal:bind({'cmd'}, 'j', moveDown, nil, moveDown)
@@ -130,3 +129,7 @@ capslock_modal:bind({'alt'}, 'h', decreaseWidth, nil, decreaseWidth)
 capslock_modal:bind({'alt'}, 'l', increaseWidth, nil, increaseWidth)
 capslock_modal:bind({'alt'}, 'j', increaseHeight, nil, increaseHeight)
 capslock_modal:bind({'alt'}, 'k', decreaseHeight, nil, decreaseHeight)
+
+-- toggle capslock
+require('capslock')
+capslock_modal:bind({}, 'space', function() toggleCapslock() capslock_modal.triggered = true end, nil)

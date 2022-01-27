@@ -11,8 +11,6 @@ https://onedrive.live.com/view.aspx?resid=17D206403A002017%21107&id=documents&wd
 -- Following five modules should be loaded in proper order, before other modules.
 lib = require("lib")
 require("misc")
-require('mouse')
-require('window')
 require('hyperlike')
 
 -- Escape key should change input source to ABC and set vi mode to normal

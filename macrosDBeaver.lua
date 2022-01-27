@@ -13,7 +13,7 @@ end)
 local dbeaverUpdateIrrelevantToTwo = hs.hotkey.new({'cmd','alt', 'shift', 'control'}, 'n', nil, function() 
     local et = hs.eventtap
     et.keyStroke({}, 'left')
-    hs.timer.doAfter(0.3, function() 
+    hs.timer.doAfter(0.1, function() 
         et.keyStroke({}, '2')
         et.keyStroke({}, 'return')
         et.keyStroke({}, 'right')
