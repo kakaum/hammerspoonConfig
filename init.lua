@@ -25,7 +25,7 @@ require('modules/escape')
 
 -- 1. my own stupid lua
 -- hjklSomeAppsMode = true
--- require('hjklSomeApps')
+-- require('modules/hjklSomeApps')
 
 -- 2. vim.lua modified
 viModeEnabled = true
