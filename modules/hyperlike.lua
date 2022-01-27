@@ -25,7 +25,7 @@ end
 -- Bind the Hyper-like key
 hs.hotkey.bind({}, 'F18', pressedF18, releasedF18)
 
--- Generate global (original?) hyper key chords. E.g. caps+a generates cmd+alt+shift+ctrl+a
+-- Generate well known hyper key chords. E.g. caps+a generates cmd+alt+shift+ctrl+a
 -- Some apps like Keyboard Maestro may require these *intentional* {'cmd','alt','shift','ctrl'} chord generation
 -- because it doesn't accept F18 as modifier in creating its macro, meaning that you can't set hotkeys like F18+n 
 -- (as opposed to cmd+alt+shift+ctrl+n).
@@ -96,7 +96,7 @@ capslock_modal:bind({}, '-', lib.keypress(true, 'f11'), nil, lib.keypress(true, 
 capslock_modal:bind({}, '=', lib.keypress(true, 'f12'), nil, lib.keypress(true, 'f12'))
 
 -- Mouse control by keyboard
-require('mouse')
+require('modules/mouse')
 capslock_modal:bind({'ctrl'}, '\'', nil, doubleClickCurr)
 capslock_modal:bind({'ctrl'}, 'return', nil, leftClickCurr)
 capslock_modal:bind({'ctrl'}, '\\', nil, rightClickCurr)
@@ -110,7 +110,7 @@ capslock_modal:bind({'ctrl', 'shift'}, 'k', movePointerUpFast, nil, movePointerU
 capslock_modal:bind({'ctrl', 'shift'}, 'l', movePointerRightFast, nil, movePointerRightFast)
 
 -- Window management
-require('window')
+require('modules/window')
 capslock_modal:bind({'cmd'}, 'left', function() moveToScreen(0) moveLeftHalf() capslock_modal.triggered = true end)
 capslock_modal:bind({'cmd'}, 'right', function() moveToScreen(0) moveRightHalf() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'left', moveLeftmost, nil, moveLeftmost)
@@ -131,5 +131,5 @@ capslock_modal:bind({'alt'}, 'j', increaseHeight, nil, increaseHeight)
 capslock_modal:bind({'alt'}, 'k', decreaseHeight, nil, decreaseHeight)
 
 -- toggle capslock
-require('capslock')
+require('modules/capslock')
 capslock_modal:bind({}, 'space', function() toggleCapslock() capslock_modal.triggered = true end, nil)
