@@ -1,6 +1,7 @@
 -- Macros for DBeaver
 
 local dbeaverOpenURL = hs.hotkey.new({'cmd','alt', 'shift', 'control'}, 'o', nil, function() 
+    capslock_modal:exit()
     local et = hs.eventtap
     et.keyStroke({'cmd'}, 'c') 
     hs.application.launchOrFocus('Google Chrome')
@@ -11,6 +12,7 @@ local dbeaverOpenURL = hs.hotkey.new({'cmd','alt', 'shift', 'control'}, 'o', nil
 end)
 
 local dbeaverUpdateIrrelevantToTwo = hs.hotkey.new({'cmd','alt', 'shift', 'control'}, 'n', nil, function() 
+    capslock_modal:exit()
     local et = hs.eventtap
     et.keyStroke({}, 'left')
     hs.timer.doAfter(0.1, function() 
