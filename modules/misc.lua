@@ -48,7 +48,7 @@ hs.hints.style = "vimperator"
 hs.hotkey.bind({'cmd'}, 'F20', hs.hints.windowHints)
 
 -- Change to insert mode and toggle Alfred. In Alfred settings, Ctrl+Option+Command+Space is set to bring Alfred up.
-hs.hotkey.bind({'cmd'}, 'space', nil, function()
+hs.hotkey.bind({'alt'}, 'space', nil, function()
     if viModeEnabled then
         exitAllModes()
         notifyModeChange('Insert mode')
@@ -60,7 +60,7 @@ hs.hotkey.bind({'cmd'}, 'space', nil, function()
 end)
 
 -- Change to insert mode and toggle Raycast
-hs.hotkey.bind({'alt'}, 'space', nil, function()
+hs.hotkey.bind({'cmd'}, 'space', nil, function()
     if viModeEnabled then
         exitAllModes()
         notifyModeChange('Insert mode')
@@ -68,6 +68,7 @@ hs.hotkey.bind({'alt'}, 'space', nil, function()
         hjklAppUnfocusedCalledManually = true
         hjklAppUnfocused()
     end
+    toABC()
     lib.keyStroke(false, {'cmd','shift'}, 'space')
 end)
 

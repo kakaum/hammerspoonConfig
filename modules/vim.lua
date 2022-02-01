@@ -26,7 +26,7 @@ function notifyModeChange(message)
     -- style.fillColor = {white = 0.05, alpha = 1} -- Use an alpha of 1 because the alerts overlay each other.
     style.fillColor = blueFill
     style.radius = 10
-    hs.alert.show(message, style, 0.5)
+    hs.alert.show(message, style, 0.3)
 end
 
 local listOfIgnoringViMode = {'HandBrake', 'Calculator', 'Screen Sharing', 'VMWare Fusion', 'Keynote', 'IntelliJ IDEA', 'MySQLWorkbench', 'Pages', 'Numbers', 'Xcode', 'Code', 'iTerm2', 'Terminal', 'Microsoft Edge', 'Google Chrome', 'KakaoTalk', 'Simulator', 'DBeaver', 'Thunderbird', 'Android Studio', 'Chrome Remote Desktop', 'Hammerspoon'}
