@@ -71,8 +71,8 @@ capslock_modal:bind({}, 'u', function() hs.eventtap.keyStroke({'cmd','shift'}, '
 capslock_modal:bind({}, 'i', function() hs.eventtap.keyStroke({'cmd','shift'}, ']') capslock_modal.triggered = true end, nil)
 
 -- For Xcode
-capslock_modal:bind({}, 'f', lib.keypress(true, {'cmd','alt'}, 'left'), nil, lib.keypress(true, {'cmd','alt'}, 'left'))
-capslock_modal:bind({}, 'g', lib.keypress(true, {'cmd','alt'}, 'right'), nil, lib.keypress(true, {'cmd','alt'}, 'right'))
+-- capslock_modal:bind({}, 'f', lib.keypress(true, {'cmd','alt'}, 'left'), nil, lib.keypress(true, {'cmd','alt'}, 'left'))
+-- capslock_modal:bind({}, 'g', lib.keypress(true, {'cmd','alt'}, 'right'), nil, lib.keypress(true, {'cmd','alt'}, 'right'))
 capslock_modal:bind({}, 'delete', lib.keypress(true, {'cmd','control'}, 'left'), nil, lib.keypress(true, {'cmd','control'}, 'left'))
 capslock_modal:bind({}, 'forwarddelete', lib.keypress(true, {'cmd'}, '['), nil, lib.keypress(true, {'cmd'}, '['))
 capslock_modal:bind({}, 'y', lib.keypress(true, {'cmd','shift'}, 'a'), nil, lib.keypress(true, {'cmd','shift'}, 'a'))
@@ -122,6 +122,7 @@ capslock_modal:bind({}, 'down', moveBottommost, nil, moveBottommost)
 capslock_modal:bind({}, 'c', function() moveCenter() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'b', function() moveCenterBig() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'm', function() maximize() capslock_modal.triggered = true end)
+capslock_modal:bind({}, 'f', function() toggleFullscreen() capslock_modal.triggered = true end)
 capslock_modal:bind({'cmd'}, 'h', moveLeft, nil, moveLeft)
 capslock_modal:bind({'cmd'}, 'l', moveRight, nil, moveRight)
 capslock_modal:bind({'cmd'}, 'j', moveDown, nil, moveDown)

@@ -189,3 +189,8 @@ function moveBottommost()
   win:setFrame(f)
   capslock_modal.triggered = true
 end
+
+function toggleFullscreen()
+  local win = hs.window.focusedWindow()
+  win:setFullScreen(not win:isFullScreen())
+end
