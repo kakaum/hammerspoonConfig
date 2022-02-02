@@ -90,13 +90,11 @@ function moveHorizontalByOffset(offset)
 end
 
 function moveLeft()
-  moveToScreen(0)
   moveHorizontalByOffset(-moveOffset)
   capslock_modal.triggered = true
 end
 
 function moveRight()
-  moveToScreen(0)
   moveHorizontalByOffset(moveOffset)
   capslock_modal.triggered = true
 end
@@ -110,13 +108,11 @@ function moveVerticalByOffset(offset)
 end
 
 function moveUp()
-  moveToScreen(0)
   moveVerticalByOffset(-moveOffset)
   capslock_modal.triggered = true
 end
 
 function moveDown()
-  moveToScreen(0)
   moveVerticalByOffset(moveOffset)
   capslock_modal.triggered = true
 end
@@ -130,13 +126,11 @@ function changeWidth(by)
 end
 
 function increaseWidth() 
-  moveToScreen(0)
   changeWidth(resizeBy)
   capslock_modal.triggered = true
 end
 
 function decreaseWidth() 
-  moveToScreen(0)
   changeWidth(-resizeBy)
   capslock_modal.triggered = true
 end
@@ -150,13 +144,11 @@ function changeHeight(by)
 end
 
 function increaseHeight() 
-  moveToScreen(0)
   changeHeight(resizeBy)
   capslock_modal.triggered = true
 end
 
 function decreaseHeight() 
-  moveToScreen(0)
   changeHeight(-resizeBy)
   capslock_modal.triggered = true
 end
