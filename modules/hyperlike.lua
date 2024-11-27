@@ -44,6 +44,10 @@ capslock_modal:bind({'shift'}, 'k', lib.keypress(true, {'shift'},'up'), nil, lib
 capslock_modal:bind({}, 'l', lib.keypress(true, 'right'), nil, lib.keypress(true, 'right'))
 capslock_modal:bind({'shift'}, 'l', lib.keypress(true, {'shift'},'right'), nil, lib.keypress(true, {'shift'},'right'))
 
+-- Bind Capslock + f/b as pagedown/pageup
+capslock_modal:bind({}, 'f', lib.keypress(true, 'pagedown'), nil, lib.keypress(true, 'pagedown'))
+capslock_modal:bind({}, 'b', lib.keypress(true, 'pageup'), nil, lib.keypress(true, 'pageup'))
+
 -- -- Press `Capslock+r`, get the Hammerspoon console.
 -- capslock_modal:bind({}, 'r', function()
 --     hs.console.hswindow():focus()
@@ -120,9 +124,9 @@ capslock_modal:bind({}, 'up', moveTopmost, nil, moveTopmost)
 capslock_modal:bind({}, 'down', moveBottommost, nil, moveBottommost)
 -- capslock_modal:bind({}, 'c', function() hs.window.focusedWindow():centerOnScreen() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'c', function() moveCenter() capslock_modal.triggered = true end)
-capslock_modal:bind({}, 'b', function() moveCenterBig() capslock_modal.triggered = true end)
+-- capslock_modal:bind({}, 'b', function() moveCenterBig() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'm', function() maximize() capslock_modal.triggered = true end)
-capslock_modal:bind({}, 'f', function() toggleFullscreen() capslock_modal.triggered = true end)
+-- capslock_modal:bind({}, 'f', function() toggleFullscreen() capslock_modal.triggered = true end)
 capslock_modal:bind({'cmd'}, 'h', moveLeft, nil, moveLeft)
 capslock_modal:bind({'cmd'}, 'l', moveRight, nil, moveRight)
 capslock_modal:bind({'cmd'}, 'j', moveDown, nil, moveDown)
