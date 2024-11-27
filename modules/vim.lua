@@ -29,7 +29,7 @@ function notifyModeChange(message)
     hs.alert.show(message, style, 0.3)
 end
 
-local listOfIgnoringViMode = {'HandBrake', 'Calculator', 'Screen Sharing', 'VMWare Fusion', 'Keynote', 'IntelliJ IDEA', 'Pages', 'Numbers', 'Xcode', 'Code', 'iTerm2', 'Terminal', 'Google Chrome', 'KakaoTalk', 'Simulator', 'DBeaver', 'Thunderbird', 'Android Studio', 'Chrome Remote Desktop', 'Hammerspoon'}
+local listOfIgnoringViMode = {'TextEdit', 'HandBrake', 'Calculator', 'Screen Sharing', 'VMware Fusion', 'Keynote', 'IntelliJ IDEA', 'Pages', 'Numbers', 'Xcode', 'Code', 'iTerm2', 'Terminal', 'Google Chrome', 'KakaoTalk', 'Simulator', 'DBeaver', 'Thunderbird', 'Android Studio', 'Chrome Remote Desktop', 'Hammerspoon', 'Dictionary', 'Firefox'}
 for _, toIgnore in ipairs(listOfIgnoringViMode) do
   hs.window.filter.new(toIgnore)
   :subscribe(hs.window.filter.windowFocused, function() toInsertMode() end)

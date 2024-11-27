@@ -28,8 +28,8 @@ require('modules/escape')
 -- require('modules/hjklSomeApps')
 
 -- 2. vim.lua modified
-viModeEnabled = true
-require('modules/vim')
+----viModeEnabled = true
+----require('modules/vim')
 
 -- 3. VimMode spoon from https://github.com/dbalatero/VimMode.spoon
 --[[
