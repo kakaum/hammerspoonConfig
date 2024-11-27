@@ -48,9 +48,9 @@ capslock_modal:bind({'shift'}, 'l', lib.keypress(true, {'shift'},'right'), nil, 
 capslock_modal:bind({}, 'f', lib.keypress(true, 'pagedown'), nil, lib.keypress(true, 'pagedown'))
 capslock_modal:bind({}, 'b', lib.keypress(true, 'pageup'), nil, lib.keypress(true, 'pageup'))
 
--- caps-0, caps-4
-capslock_modal:bind({}, '0', lib.keypress(true, 'home'), nil, lib.keypress(true, 'home'))
-capslock_modal:bind({}, '4', lib.keypress(true, 'end'), nil, lib.keypress(true, 'end'))
+-- caps-0 for cmd-left, caps-4 for cmd-right
+capslock_modal:bind({}, '0', lib.keypress(true, {'cmd'}, 'left'), nil, lib.keypress(true, {'cmd'}, 'left'))
+capslock_modal:bind({}, '4', lib.keypress(true, {'cmd'}, 'right'), nil, lib.keypress(true, {'cmd'}, 'right'))
 
 -- -- Press `Capslock+r`, get the Hammerspoon console.
 -- capslock_modal:bind({}, 'r', function()
