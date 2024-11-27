@@ -48,6 +48,10 @@ capslock_modal:bind({'shift'}, 'l', lib.keypress(true, {'shift'},'right'), nil, 
 capslock_modal:bind({}, 'f', lib.keypress(true, 'pagedown'), nil, lib.keypress(true, 'pagedown'))
 capslock_modal:bind({}, 'b', lib.keypress(true, 'pageup'), nil, lib.keypress(true, 'pageup'))
 
+-- caps-0, caps-4
+capslock_modal:bind({}, '0', lib.keypress(true, 'home'), nil, lib.keypress(true, 'home'))
+capslock_modal:bind({}, '4', lib.keypress(true, 'end'), nil, lib.keypress(true, 'end'))
+
 -- -- Press `Capslock+r`, get the Hammerspoon console.
 -- capslock_modal:bind({}, 'r', function()
 --     hs.console.hswindow():focus()
@@ -87,18 +91,18 @@ capslock_modal:bind({}, '/', nil, function() hs.eventtap.keyStroke({"cmd","optio
 
 -- It is really hard to press function keys in Micorsoft Sculpt keyboard...
 -- 1/2/../0/-/= for F1/F2/../F10/F11/F12
-capslock_modal:bind({}, '1', lib.keypress(true, 'f1'), nil, lib.keypress(true, 'f1'))
-capslock_modal:bind({}, '2', lib.keypress(true, 'f2'), nil, lib.keypress(true, 'f2'))
-capslock_modal:bind({}, '3', lib.keypress(true, 'f3'), nil, lib.keypress(true, 'f3'))
-capslock_modal:bind({}, '4', lib.keypress(true, 'f4'), nil, lib.keypress(true, 'f4'))
-capslock_modal:bind({}, '5', lib.keypress(true, 'f5'), nil, lib.keypress(true, 'f5'))
-capslock_modal:bind({}, '6', lib.keypress(true, 'f6'), nil, lib.keypress(true, 'f6'))
-capslock_modal:bind({}, '7', lib.keypress(true, 'f7'), nil, lib.keypress(true, 'f7'))
-capslock_modal:bind({}, '8', lib.keypress(true, 'f8'), nil, lib.keypress(true, 'f8'))
-capslock_modal:bind({}, '9', lib.keypress(true, 'f9'), nil, lib.keypress(true, 'f9'))
-capslock_modal:bind({}, '0', lib.keypress(true, 'f10'), nil, lib.keypress(true, 'f10'))
-capslock_modal:bind({}, '-', lib.keypress(true, 'f11'), nil, lib.keypress(true, 'f11'))
-capslock_modal:bind({}, '=', lib.keypress(true, 'f12'), nil, lib.keypress(true, 'f12'))
+-- capslock_modal:bind({}, '1', lib.keypress(true, 'f1'), nil, lib.keypress(true, 'f1'))
+-- capslock_modal:bind({}, '2', lib.keypress(true, 'f2'), nil, lib.keypress(true, 'f2'))
+-- capslock_modal:bind({}, '3', lib.keypress(true, 'f3'), nil, lib.keypress(true, 'f3'))
+-- capslock_modal:bind({}, '4', lib.keypress(true, 'f4'), nil, lib.keypress(true, 'f4'))
+-- capslock_modal:bind({}, '5', lib.keypress(true, 'f5'), nil, lib.keypress(true, 'f5'))
+-- capslock_modal:bind({}, '6', lib.keypress(true, 'f6'), nil, lib.keypress(true, 'f6'))
+-- capslock_modal:bind({}, '7', lib.keypress(true, 'f7'), nil, lib.keypress(true, 'f7'))
+-- capslock_modal:bind({}, '8', lib.keypress(true, 'f8'), nil, lib.keypress(true, 'f8'))
+-- capslock_modal:bind({}, '9', lib.keypress(true, 'f9'), nil, lib.keypress(true, 'f9'))
+-- capslock_modal:bind({}, '0', lib.keypress(true, 'f10'), nil, lib.keypress(true, 'f10'))
+-- capslock_modal:bind({}, '-', lib.keypress(true, 'f11'), nil, lib.keypress(true, 'f11'))
+-- capslock_modal:bind({}, '=', lib.keypress(true, 'f12'), nil, lib.keypress(true, 'f12'))
 
 -- Mouse control by keyboard
 require('modules/mouse')
