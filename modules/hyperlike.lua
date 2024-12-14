@@ -78,6 +78,12 @@ end, nil, nil)
 capslock_modal:bind({}, 'u', function() hs.eventtap.keyStroke({'cmd','shift'}, '[') capslock_modal.triggered = true end, nil)
 capslock_modal:bind({}, 'i', function() hs.eventtap.keyStroke({'cmd','shift'}, ']') capslock_modal.triggered = true end, nil)
 
+-- Select Pane in iTerm
+capslock_modal:bind({'cmd'}, 'h', function() hs.eventtap.keyStroke({'cmd','option'}, 'left') capslock_modal.triggered = true end, nil)
+capslock_modal:bind({'cmd'}, 'j', function() hs.eventtap.keyStroke({'cmd','option'}, 'down') capslock_modal.triggered = true end, nil)
+capslock_modal:bind({'cmd'}, 'k', function() hs.eventtap.keyStroke({'cmd','option'}, 'up') capslock_modal.triggered = true end, nil)
+capslock_modal:bind({'cmd'}, 'l', function() hs.eventtap.keyStroke({'cmd','option'}, 'right') capslock_modal.triggered = true end, nil)
+
 -- For Xcode
 -- capslock_modal:bind({}, 'f', lib.keypress(true, {'cmd','alt'}, 'left'), nil, lib.keypress(true, {'cmd','alt'}, 'left'))
 -- capslock_modal:bind({}, 'g', lib.keypress(true, {'cmd','alt'}, 'right'), nil, lib.keypress(true, {'cmd','alt'}, 'right'))
@@ -131,10 +137,10 @@ capslock_modal:bind({}, 'c', function() moveCenter() capslock_modal.triggered = 
 -- capslock_modal:bind({}, 'b', function() moveCenterBig() capslock_modal.triggered = true end)
 capslock_modal:bind({}, 'm', function() maximize() capslock_modal.triggered = true end)
 -- capslock_modal:bind({}, 'f', function() toggleFullscreen() capslock_modal.triggered = true end)
-capslock_modal:bind({'cmd'}, 'h', moveLeft, nil, moveLeft)
-capslock_modal:bind({'cmd'}, 'l', moveRight, nil, moveRight)
-capslock_modal:bind({'cmd'}, 'j', moveDown, nil, moveDown)
-capslock_modal:bind({'cmd'}, 'k', moveUp, nil, moveUp)
+-- capslock_modal:bind({'cmd'}, 'h', moveLeft, nil, moveLeft)
+-- capslock_modal:bind({'cmd'}, 'l', moveRight, nil, moveRight)
+-- capslock_modal:bind({'cmd'}, 'j', moveDown, nil, moveDown)
+-- capslock_modal:bind({'cmd'}, 'k', moveUp, nil, moveUp)
 capslock_modal:bind({'alt'}, 'h', decreaseWidth, nil, decreaseWidth)
 capslock_modal:bind({'alt'}, 'l', increaseWidth, nil, increaseWidth)
 capslock_modal:bind({'alt'}, 'j', increaseHeight, nil, increaseHeight)
