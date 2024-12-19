@@ -111,7 +111,11 @@ myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConf
      전역 네임스페이스를 더럽히고 싶지 않기 때문에 do - end로 스코프를 지정했습니다.
      Adapted from https://johngrib.github.io/wiki/hammerspoon-tutorial-03/
 ]]
-do  -- input sorce changer
+
+--[[
+2024-12-19 아래의 input source changer를 쓸 경우 Mail 앱에서 한글이 "나나나" 대신에 "ㄴㅏㄴㅏㄴㅏ"로 잘못되는 경우가 발생한다. 일단 막는다.
+
+do  -- input source changer
     local inputSource = {
         english = "com.apple.keylayout.ABC",
         korean = "com.apple.inputmethod.Korean.2SetKorean",
@@ -132,3 +136,4 @@ do  -- input sorce changer
 
     hs.hotkey.bind({'shift'}, 'space', changeInput)
 end
+]]
